@@ -1,5 +1,5 @@
 {
-  "name": "ion-sdk-js",
+  "name": "ion-sdk-js-v2",
   "version": "1.8.2",
   "description": "A js sdk for ion-sfu or ion",
   "main": "lib/index.js",
