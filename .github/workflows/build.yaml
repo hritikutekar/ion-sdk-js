@@ -13,9 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      # Set NODE_OPTIONS environment variable here
-      - name: Set NODE_OPTIONS
-        run: echo "NODE_OPTIONS=--openssl-legacy-provider" >> $GITHUB_ENV
+      # Use Node.js 16.x to avoid needing the openssl-legacy-provider flag
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
       
       - name: install
         run: yarn
