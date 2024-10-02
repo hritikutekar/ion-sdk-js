@@ -70,6 +70,7 @@ export default class Client {
   transports?: Transports<Role, Transport>;
   private config: Configuration;
   private signal: Signal;
+  uid?: string;
 
   ontrack?: (track: MediaStreamTrack, stream: RemoteStream) => void;
   ondatachannel?: (ev: RTCDataChannelEvent) => void;
@@ -206,7 +207,9 @@ export default class Client {
     }
   }
 
-  private async negotiate(description: RTCSessionDescriptionInit) {
+  private async negotiate(description: RTCSessionDescriptionInit, uid: string) {
+    this.uid = uid;
+
     if (!this.transports) {
       throw Error(ERR_NO_SESSION);
     }
